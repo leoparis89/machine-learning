@@ -22,8 +22,9 @@ def naive_matrix_vector_dot(x, y):
     assert x.shape[1] == y.shape[0]
     z = np.zeros(x.shape[0])
     for i in range(x.shape[0]):
-        for j in range(x.shape[1]):
-            z[i] += x[i, j] * y[j]
+        z[i] = naive_vector_dot(x[i, :], y)
+        # for j in range(x.shape[1]):
+        #     z[i] += x[i, j] * y[j]
     return z
 
 
