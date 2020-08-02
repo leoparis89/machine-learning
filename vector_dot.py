@@ -6,14 +6,14 @@ def naive_vector_dot(x, y):
     assert len(y.shape) == 1
     z = 0
     for i in range(x.shape[0]):
-        z += x[i] + y[i]
+        z += x[i] * y[i]
     return z
 
 
 x = np.array([1, 2, 3])
 y = np.array([2, 1, 2])
 
-assert naive_vector_dot(x, y) == 11
+print(naive_vector_dot(x, y))
 
 
 def naive_matrix_vector_dot(x, y):
@@ -31,4 +31,4 @@ def naive_matrix_vector_dot(x, y):
 x = np.array([[1, 2, 3], [3, 4, 3], [2, 1, 3]])
 y = np.array([1, 2, 3])
 
-assert((naive_matrix_vector_dot(x, y) == [14, 20, 13]).all())
+print(naive_matrix_vector_dot(x, y))
