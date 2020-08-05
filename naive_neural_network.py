@@ -46,3 +46,18 @@ model = NaiveSequential([
     NaiveDense(input_size=512, output_size=10, activation=tf.nn.softmax)
 ])
 assert len(model.weights) == 4
+
+
+class BatchGenerator:
+
+    def __init__(self, images, labels, batch_size=128):
+        self.index = 0
+        self.images = images
+        self.labels = labels
+        self.batch_size = batch_size
+
+    def next(self):
+        images = self.images[self.index: self.index + self.batch_size]
+        labels = self.labels[self.index: self.index + self.batch_size]
+        self.index += self.batch_size
+        return images, labels
